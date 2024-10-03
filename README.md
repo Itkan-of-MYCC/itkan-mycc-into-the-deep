@@ -1,5 +1,5 @@
 ## ABOUT
-This is the robot code repo for the Itkan of MYCC robotics team (#23532). Insane stuff will happen.
+This is the robot code repo for the Itkan of MYCC robotics team (#23532). We are very cracked.
 
 ## NOTICE
 
