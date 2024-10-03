@@ -5,6 +5,8 @@ import androidx.annotation.NonNull;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
+import org.firstinspires.ftc.teamcode.wrapper.CachedMotor;
+
 import java.lang.annotation.Inherited;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -26,14 +28,14 @@ public class MecanumDrive implements Subsystem {
     public static final MecanumDrive INSTANCE = new MecanumDrive();
 
     // MOTORS
-    private final SubsystemObjectCell<DcMotorEx> leftFront = subsystemCell(() ->
-            FeatureRegistrar.getActiveOpMode().hardwareMap.get(DcMotorEx.class, "leftFront"));
-    private final SubsystemObjectCell<DcMotorEx> rightFront = subsystemCell(() ->
-            FeatureRegistrar.getActiveOpMode().hardwareMap.get(DcMotorEx.class, "rightFront"));
-    private final SubsystemObjectCell<DcMotorEx> rightBack = subsystemCell(() ->
-            FeatureRegistrar.getActiveOpMode().hardwareMap.get(DcMotorEx.class, "rightBack"));
-    private final SubsystemObjectCell<DcMotorEx> leftBack = subsystemCell(() ->
-            FeatureRegistrar.getActiveOpMode().hardwareMap.get(DcMotorEx.class, "leftBack"));
+    private final SubsystemObjectCell<CachedMotor> leftFront = subsystemCell(() ->
+            new CachedMotor(FeatureRegistrar.getActiveOpMode().hardwareMap, "leftFront"));
+    private final SubsystemObjectCell<CachedMotor> rightFront = subsystemCell(() ->
+            new CachedMotor(FeatureRegistrar.getActiveOpMode().hardwareMap, "rightFront"));
+    private final SubsystemObjectCell<CachedMotor> rightBack = subsystemCell(() ->
+            new CachedMotor(FeatureRegistrar.getActiveOpMode().hardwareMap, "rightBack"));
+    private final SubsystemObjectCell<CachedMotor> leftBack = subsystemCell(() ->
+            new CachedMotor(FeatureRegistrar.getActiveOpMode().hardwareMap, "leftBack"));
 
 
     private MecanumDrive() {
@@ -67,10 +69,10 @@ public class MecanumDrive implements Subsystem {
     }
 
     /****** GETTERS */
-    public DcMotorEx getLeftFront() { return leftFront.get(); }
-    public DcMotorEx getRightFront() { return rightFront.get(); }
-    public DcMotorEx getLeftBack() { return leftBack.get(); }
-    public DcMotorEx getRightBack() { return rightBack.get(); }
+    public CachedMotor getLeftFront() { return leftFront.get(); }
+    public CachedMotor getRightFront() { return rightFront.get(); }
+    public CachedMotor getLeftBack() { return leftBack.get(); }
+    public CachedMotor getRightBack() { return rightBack.get(); }
 
     /******** MERCURIAL HOOKS */
     @Override
