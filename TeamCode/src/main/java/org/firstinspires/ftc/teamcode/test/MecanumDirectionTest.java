@@ -1,21 +1,19 @@
 package org.firstinspires.ftc.teamcode.test;
 
-import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
-import org.firstinspires.ftc.teamcode.subsystems.MecanumDrive;
+import org.firstinspires.ftc.teamcode.feature.MecanumDrive;
+import org.firstinspires.ftc.teamcode.wrapper.RoboticOpMode;
 
-@TeleOp(name = "TEST: Mecanum Direction Test")
-public class MecanumDirectionTest extends LinearOpMode {
-    MecanumDrive drive;
+@TeleOp(name = "TEST\uD83E\uDDEA: Mecanum Drive Direction Test")
+class MecanumDirectionTest extends RoboticOpMode {
+    @Override
+    public void init() {
+        MecanumDrive.INSTANCE.setDefaultCommand(MecanumDrive.INSTANCE.robotCentricDriveCommand());
+    }
 
     @Override
-    public void runOpMode() throws InterruptedException {
-        this.drive = new MecanumDrive(hardwareMap);
+    public void loop() {
 
-        float x = gamepad1.left_stick_x;
-        float y = gamepad1.left_stick_y;
-        float rx = gamepad1.right_stick_x;
-        drive.setPowers(x, y, rx);
     }
 }
