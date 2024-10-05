@@ -1,8 +1,7 @@
-package org.firstinspires.ftc.teamcode.feature;
+package org.firstinspires.ftc.teamcode.feature.subsystem;
 
 import androidx.annotation.NonNull;
 
-import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
 import org.firstinspires.ftc.teamcode.wrapper.CachedMotor;
@@ -36,7 +35,6 @@ public class MecanumDrive implements Subsystem {
             new CachedMotor(FeatureRegistrar.getActiveOpMode().hardwareMap, "rightBack"));
     private final SubsystemObjectCell<CachedMotor> leftBack = subsystemCell(() ->
             new CachedMotor(FeatureRegistrar.getActiveOpMode().hardwareMap, "leftBack"));
-
 
     private MecanumDrive() {
 
