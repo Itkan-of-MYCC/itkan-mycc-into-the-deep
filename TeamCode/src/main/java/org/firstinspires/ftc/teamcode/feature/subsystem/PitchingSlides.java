@@ -10,6 +10,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 import dev.frozenmilk.dairy.core.dependency.Dependency;
+import dev.frozenmilk.mercurial.commands.Lambda;
 import dev.frozenmilk.mercurial.subsystems.Subsystem;
 import kotlin.annotation.MustBeDocumented;
 
@@ -41,5 +42,21 @@ public class PitchingSlides extends Subsystem {
     @MustBeDocumented
     @Inherited
     public @interface Attach {
+    }
+
+    public Lambda pitchTo() {
+
+    }
+
+    public Lambda setSlidePowers() {
+
+    }
+
+    public Lambda setSlidePosition() {
+
+    }
+
+    public Lambda executeGrabSequence() {
+
     }
 }
